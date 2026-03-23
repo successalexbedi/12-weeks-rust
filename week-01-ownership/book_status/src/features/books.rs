@@ -7,7 +7,7 @@ pub use actions::{
     borrow_book,
     return_book,
     display_book,
-}
+};
 
 
 pub use checker::{
@@ -15,4 +15,4 @@ pub use checker::{
     can_borrow,
     calculate_late_fee,
     get_category,
-}
+};

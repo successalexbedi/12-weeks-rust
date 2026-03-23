@@ -30,6 +30,14 @@ pub fn calculate_late_fee(days_late: i32) -> f64 {
 }
 
 
-pub fn get_category(title: &String) -> &'static str{
-    
+pub fn get_category(title: &str) -> &'static str {
+    if title.contains("Rust") || title.contains("Python") {
+        "Programming"
+    } else if title.contains("History") {
+        "Non-Fiction"
+    } else if title.contains("Novel") {
+        "Fiction"
+    } else {
+        "General"
+    }
 }

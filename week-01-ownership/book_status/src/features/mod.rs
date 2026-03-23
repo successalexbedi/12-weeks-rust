@@ -1,7 +1,7 @@
-pub mod features;
+pub mod books;
 
 
-pub use features::{
+pub use books::{
     borrow_book,
     return_book,
     display_book,
@@ -10,4 +10,4 @@ pub use features::{
     calculate_late_fee,
     get_category,
     
-}
+};
