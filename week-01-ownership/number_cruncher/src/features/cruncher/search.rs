@@ -1,92 +1,41 @@
+/// Finds the index of the first occurrence of the target.
+pub fn find_first_index(numbers: &[i32; 10], target: i32) -> Option<usize> {
+    for i in 0..numbers.len() {
+        if numbers[i] == target {
+            return Some(i);
+        }
+    }
+    None
+}
 
+/// Finds the index of the last occurrence of the target by searching in reverse.
+pub fn find_last_index(numbers: &[i32; 10], target: i32) -> Option<usize> {
+    // .rev() allows us to start from the end of the range
+    for i in (0..numbers.len()).rev() {
+        if numbers[i] == target {
+            return Some(i);
+        }
+    }
+    None
+}
 
-pub fn find_first_index(numbers: &[i32; 10], target: i32) -> Option<usize>
+/// Checks if the array contains a specific value.
+pub fn contains_value(numbers: &[i32; 10], target: i32) -> bool {
+    for &num in numbers {
+        if num == target {
+            return true;
+        }
+    }
+    false
+}
 
-WHAT IT DOES:
-- Find index of first occurrence of target
-- Return Some(index) if found
-- Return None if not found
-
-USE:
-- for loop with index (0..numbers.len())
-- if numbers[i] == target
-- break and return Some(i)
-
-OWNERSHIP:
-- Borrows array (&)
-
-
-
-
-
-
-
-
-
-
-pub fn find_last_index(numbers: &[i32; 10], target: i32) -> Option<usize>
-
-WHAT IT DOES:
-- Find index of LAST occurrence
-- Return Some(index) or None
-
-USE:
-- for loop backwards: (0..numbers.len()).rev()
-- OR: loop forward and track last found
-
-OWNERSHIP:
-- Borrows array (&)
-
-
-
-
-
-
-
-
-
-
-pub fn contains_value(numbers: &[i32; 10], target: i32) -> bool
-
-WHAT IT DOES:
-- Check if array contains target
-- Return true if found, false otherwise
-
-USE:
-- for loop
-- if num == target, return true
-- break when found
-
-OWNERSHIP:
-- Borrows array (&)
-
-
-
-
-
-
-
-
-
-
-
-pub fn are_all_positive(numbers: &[i32; 10]) -> bool
-
-WHAT IT DOES:
-- Check if ALL numbers > 0
-- Return true only if all positive
-- Return false if any negative or zero
-
-USE:
-- for loop
-- if num <= 0, return false immediately
-- If loop completes, return true
-
-OWNERSHIP:
-- Borrows array (&)
-
-
-
-
-
-
+/// Returns true only if every element in the array is greater than zero.
+pub fn are_all_positive(numbers: &[i32; 10]) -> bool {
+    for &num in numbers {
+        if num <= 0 {
+            // Short-circuit: return false immediately if a non-positive is found
+            return false;
+        }
+    }
+    true
+}
